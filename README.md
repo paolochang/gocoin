@@ -13,7 +13,7 @@ Build a blockchain with a hash, mining, blocks and explorer, JSON API.
 - [x] BLOCKCHAIN
 - [x] EXPLORER
 - [x] REST API
-- [ ] CLI
+- [x] CLI
 - [ ] PERSISTENCE
 - [ ] MINING
 - [ ] TRANSACTIONS
