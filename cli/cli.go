@@ -11,29 +11,30 @@ import (
 
 func usage() {
 	fmt.Printf("Welcome to Go Coin\n\n")
-	fmt.Printf("Please us the following flags:\n\n")
-	fmt.Printf("-port:		Start the PORT of the server\n")
-	fmt.Printf("-mode:		Choose between 'html' and 'rest'\n\n")
+	fmt.Printf("Please use the following flags:\n\n")
+	fmt.Printf("-mode:		Select the mode from 'all', 'rest', or 'html' (default 'all')\n")
+	fmt.Printf("-port:		Start the PORT of the server (default 4000)\n\n")
 	os.Exit(0)
 }
 
 func Strat() {
-	if len(os.Args) == 1 {
-		usage()
-	}
 
-	mode := flag.String("mode", "rest", "Choose between 'html' and 'rest'")
+	mode := flag.String("mode", "all", "Select the mode from 'html', 'rest', or 'all'")
 	port := flag.Int("port", 4000, "Set port of the server")
 
 	flag.Parse()
 
 	switch *mode {
 	case "rest":
-		// start rest api
+		fmt.Println("Start REST API server")
 		rest.Start(*port)
 	case "html":
-		// start html explorer
+		fmt.Println("Start HTML server")
 		explorer.Start(*port)
-	default:
+	case "all":
+		fmt.Println("Start REST API and HTML server\nTo see the CLI command usage, run: go run main.go -mode=help")
+		go explorer.Start(*port)
+		rest.Start(*port+1)
+	case "help":
 		usage()
 	}}
