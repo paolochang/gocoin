@@ -15,7 +15,9 @@ var once sync.Once
 
 func (b *blockchain) AddBlock(data string) {
 	// block := Block{data, "", b.NewestHash, b.Height + 1}
-	createBlock(data, b.NewestHash, b.Height)
+	block := createBlock(data, b.NewestHash, b.Height)
+	b.NewestHash = block.Hash
+	b.Height = block.Height
 }
 
 func GetBlockchain() *blockchain {
