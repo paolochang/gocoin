@@ -1,8 +1,11 @@
 package main
 
-import "github.com/paolochang/gocoin/cli"
+import (
+	"github.com/paolochang/gocoin/blockchain"
+)
 
 func main() {
-	cli.Strat()
+	// cli.Strat()
+	blockchain.Blockchain()
 }
 
