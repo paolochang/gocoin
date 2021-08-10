@@ -1,4 +1,7 @@
-package blockchain
+package old
+
+// This is an old blockchain.go before using database
+// New blockchain.go has separated to block.go and chain.go
 
 import (
 	"crypto/sha256"
