@@ -6,6 +6,8 @@ import (
 
 func main() {
 	// cli.Strat()
-	blockchain.Blockchain()
+	blockchain.Blockchain().AddBlock("first")
+	blockchain.Blockchain().AddBlock("second")
+	blockchain.Blockchain().AddBlock("third")
 }
 
